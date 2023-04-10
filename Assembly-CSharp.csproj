@@ -41,8 +41,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\S.DataBase\DatabaseManager.cs" />
      <Compile Include="Assets\Scripts\S.Player\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\S.DataBase\DatabaseManager.cs" />
      <Compile Include="Assets\Scripts\S.Player\PlayerController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts\S.Player" />

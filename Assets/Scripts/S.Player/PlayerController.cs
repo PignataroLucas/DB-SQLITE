@@ -45,5 +45,19 @@ namespace S.Player
                       $"Damage : {_attack}");
             
         }
+
+        public void UpdateSpeed (int newSpeed)
+        {
+            _speedMovement = newSpeed;
+            _databaseManager.UpdatePlayerStats(id,_class,_life,_speedMovement,_attack);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                UpdateSpeed(_speedMovement + 1);
+            }
+        }
     }
 }
