@@ -44,12 +44,17 @@
      <Compile Include="Assets\Scripts\S.Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\S.DataBase\DatabaseManager.cs" />
      <Compile Include="Assets\Scripts\S.Player\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\S.Grid\Grid.cs" />
+     <Compile Include="Assets\Scripts\S.Grid\StructurePlacer.cs" />
+     <Compile Include="Assets\Scripts\S.Structures\Structure.cs" />
      <Folder Include="Assets" />
+     <Folder Include="Assets\Scripts\S.Grid" />
      <Folder Include="Assets\Scripts\S.Player" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Resources" />
      <Folder Include="Assets\Scripts\S.DataBase" />
      <Folder Include="Assets\Resources\DB" />
+     <Folder Include="Assets\Scripts\S.Structures" />
      <Folder Include="Assets\Scenes" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity 2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
