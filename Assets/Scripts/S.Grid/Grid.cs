@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace S.Grid
@@ -15,6 +14,11 @@ namespace S.Grid
         
         public int Width => _width;
         public int Height => _height;
+        
+        public float offsetX = 0f;
+        public float offsetZ = 0f;
+        
+        
 
         private void Start()
         {
@@ -44,8 +48,8 @@ namespace S.Grid
             {
                 for (int z = 0; z < _height; z++)
                 {
-                    float xPos = transform.position.x - PlaneSize.x * 0.5f + x * cellSize + cellSize * 0.5f;
-                    float zPos = transform.position.z - PlaneSize.y * 0.5f + z * cellSize + cellSize * 0.5f;
+                    float xPos = transform.position.x - PlaneSize.x * 0.5f + x * cellSize + cellSize * 0.5f + offsetX;
+                    float zPos = transform.position.z - PlaneSize.y * 0.5f + z * cellSize + cellSize * 0.5f + offsetZ;
                     _grid[x, z] = new Vector3(xPos, 0, zPos);
                 }
             }
@@ -54,8 +58,9 @@ namespace S.Grid
         public Vector3 GetCellPosition(int x, int z)
         {
             Vector3 planePosition = gridPlane.transform.position;
-            return new Vector3(x * cellSize + planePosition.x - (gridPlane.transform.localScale.x * 5), 0, z * cellSize + planePosition.z - (gridPlane.transform.localScale.z * 5));
+            return new Vector3(x * cellSize + planePosition.x - (PlaneSize.x * 0.5f) + (cellSize * 0.5f) + offsetX, 0, z * cellSize + planePosition.z - (PlaneSize.y * 0.5f) + (cellSize * 0.5f) + offsetZ);
         }
+
 
         public Vector3[,] GetGrid()
         {
@@ -67,7 +72,7 @@ namespace S.Grid
             //if (gridPlane == null) return;
 
             CalculateGridDimensions();
-            if (_grid == null) _grid = new Vector3[_width, _height];
+            _grid ??= new Vector3[_width, _height];
             CreateGrid();
 
             Gizmos.color = Color.yellow;
@@ -81,16 +86,25 @@ namespace S.Grid
                 }
             }
         }
-        
         public Vector2 PlaneSize
         {
             get
             {
-                MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-                var bounds = meshRenderer.bounds;
-                return new Vector2(bounds.size.x, bounds.size.z);
+                MeshFilter meshFilter = gridPlane.GetComponent<MeshFilter>();
+                if (meshFilter == null) return Vector2.zero;
+
+                Vector3 meshSize = meshFilter.sharedMesh.bounds.size;
+                Vector3 localScale = gridPlane.transform.localScale;
+                return new Vector2(meshSize.x * localScale.x, meshSize.z * localScale.z);
             }
         }
+        public Vector2Int GetGridIndex(Vector3 worldPosition)
+        {
+            Vector3 localPosition = worldPosition - gridPlane.transform.position + new Vector3(PlaneSize.x * 0.5f, 0, PlaneSize.y * 0.5f) + new Vector3(offsetX, 0, offsetZ);
+            int x = Mathf.FloorToInt(localPosition.x / cellSize);
+            int z = Mathf.FloorToInt(localPosition.z / cellSize);
 
+            return new Vector2Int(x, z);
+        }
     }
 }

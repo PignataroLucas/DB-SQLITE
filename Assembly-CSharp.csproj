@@ -43,15 +43,17 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\S.Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\S.DataBase\DatabaseManager.cs" />
-     <Compile Include="Assets\Scripts\S.Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\S.Grid\Grid.cs" />
-     <Compile Include="Assets\Scripts\S.Grid\StructurePlacer.cs" />
      <Compile Include="Assets\Scripts\S.Structures\Structure.cs" />
+     <Compile Include="Assets\Scripts\S.Structures\StructureData.cs" />
+     <Compile Include="Assets\Scripts\S.Grid\StructurePlacer.cs" />
+     <Compile Include="Assets\Scripts\S.Player\PlayerController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts\S.Grid" />
      <Folder Include="Assets\Scripts\S.Player" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Resources" />
+     <Folder Include="Assets\Materials" />
      <Folder Include="Assets\Scripts\S.DataBase" />
      <Folder Include="Assets\Resources\DB" />
      <Folder Include="Assets\Scripts\S.Structures" />

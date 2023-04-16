@@ -1,7 +1,7 @@
-using System;
 using System.Data;
 using Mono.Data.Sqlite;
 using S.Player;
+using S.Structures;
 using UnityEngine;
 
 namespace S.DataBase
@@ -57,6 +57,34 @@ namespace S.DataBase
             dbConnection.Close();
 
             return playerStats;
+        }
+
+        public StructureData GetStructureData(int structureId)
+        {
+            IDbConnection dbConnection = new SqliteConnection(_db);
+            dbConnection.Open();
+
+            IDbCommand dbCommand = dbConnection.CreateCommand();
+            dbCommand.CommandText = "SELECT * FROM Structure";
+            IDataReader reader = dbCommand.ExecuteReader();
+
+            StructureData structureData = new StructureData();
+
+            while (reader.Read())
+            {
+                structureData = new StructureData
+                {
+                    Id = reader.GetInt32(0),
+                    Description = !reader.IsDBNull(1)? reader.GetString(1):"N/A",
+                    CellOccupiedX = !reader.IsDBNull(2) ? reader.GetInt32(2) : 0,
+                    CellOccupiedY = !reader.IsDBNull(3) ? reader.GetInt32(3) : 0,
+                };
+            }
+            reader.Close();
+            dbCommand.Dispose();
+            dbConnection.Close();
+
+            return structureData;
         }
 
         public void UpdatePlayerStats(int id, string playerClass, int life, int speedMovement, int damage)
