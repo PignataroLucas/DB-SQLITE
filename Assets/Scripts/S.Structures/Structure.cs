@@ -36,6 +36,9 @@ namespace S.Structures
             _description = structureData.Description;
             _cellOccupiedX = structureData.CellOccupiedX;
             _cellOccupiedY = structureData.CellOccupiedY;
+
+            Debug.Log(
+                $"ID : {id} , Description : {_description} , CellsX : {_cellOccupiedX} , CellsY : {_cellOccupiedY} "); 
         }
     }
 }

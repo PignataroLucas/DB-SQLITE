@@ -8,7 +8,7 @@ namespace S.Grid
 {
     public class StructurePlacer : MonoBehaviour
     {
-        [SerializeField] private GameObject cube;
+        [SerializeField] private List<GameObject> structurePrefabs;
         [SerializeField] private Grid grid;
         [SerializeField] private DatabaseManager databaseManager;
 
@@ -23,12 +23,15 @@ namespace S.Grid
         {
             if (Input.GetMouseButtonDown(0))
             {
-                PlaceStructureAtMousePosition();
+                int structureId = 2;
+                PlaceStructureAtMousePosition(structureId);
             }
         }
 
-        private void PlaceStructureAtMousePosition()
+        private void PlaceStructureAtMousePosition(int structureId )
         {
+            StructureData structureData = databaseManager.GetStructureData(structureId);
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -36,40 +39,68 @@ namespace S.Grid
             {
                 Vector3 gridPosition = grid.transform.InverseTransformPoint(hit.point);
                 Vector2Int gridIndex = grid.GetGridIndex(gridPosition);
+
                 
-                if (IsCellOccupied(gridIndex))
+                if (IsCellOccupied(gridIndex, structureData.CellOccupiedX, structureData.CellOccupiedY))
                 {
                     return;
                 }
 
-                
-                StructureData structureData = databaseManager.GetStructureData(1);
+                Vector3 position = grid.GetCellPosition(gridIndex.x, gridIndex.y);
 
-                if (structureData != null)
+                GameObject structurePrefab = GetPrefabById(structureId);
+                if (structurePrefab != null)
                 {
-                    Vector3 position = grid.GetCellPosition(gridIndex.x, gridIndex.y);
-
-                    GameObject newStructure = Instantiate(cube, position, Quaternion.identity);
+                    GameObject newStructure = Instantiate(structurePrefab, position, Quaternion.identity);
                     newStructure.GetComponent<Structure>().LoadStructureStats(structureData.Id);
                     _placedStructures.Add(newStructure);
                 }
             }
         }
         
-        private bool IsCellOccupied(Vector2Int gridIndex)
+        private bool IsCellOccupied(Vector2Int gridIndex, int cellOccupiedX, int cellOccupiedY)
         {
-            foreach (GameObject structure in _placedStructures)
+            for (int x = gridIndex.x; x < gridIndex.x + cellOccupiedX; x++)
             {
-                Structure structureComponent = structure.GetComponent<Structure>();
-                Vector2Int structureGridIndex = grid.GetGridIndex(structure.transform.position);
-
-                if (gridIndex == structureGridIndex)
+                for (int y = gridIndex.y; y < gridIndex.y + cellOccupiedY; y++)
                 {
-                    return true;
+                    Vector2Int currentGridIndex = new Vector2Int(x, y);
+
+                    foreach (GameObject structure in _placedStructures)
+                    {
+                        Structure structureComponent = structure.GetComponent<Structure>();
+                        Vector2Int structureGridIndex = grid.GetGridIndex(structure.transform.position);
+
+                        int structureCellOccupiedX = structureComponent.CellOccupiedX;
+                        int structureCellOccupiedY = structureComponent.CellOccupiedY;
+
+                        for (int sx = structureGridIndex.x; sx < structureGridIndex.x + structureCellOccupiedX; sx++)
+                        {
+                            for (int sy = structureGridIndex.y; sy < structureGridIndex.y + structureCellOccupiedY; sy++)
+                            {
+                                if (currentGridIndex == new Vector2Int(sx, sy))
+                                {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
                 }
             }
-
             return false;
+        }
+        
+        private GameObject GetPrefabById(int id)
+        {
+            foreach (GameObject prefab in structurePrefabs )
+            {
+                Structure structure = prefab.GetComponent<Structure>();
+                if (structure != null && structure.Id == id)
+                {
+                    return prefab;
+                }
+            }
+            return null;
         }
         
         
