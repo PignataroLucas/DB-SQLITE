@@ -7,9 +7,11 @@ namespace S.UI
     public class BuyStructureButton : MonoBehaviour
     {
 
+        [SerializeField] private int structureId;
+
         public void BuyStructure()
         {
-            EventManager.TriggerEvent(GenericEvents.BuyStructure);
+            EventTriggers.TriggerEvent<int>(GenericEvents.BuyStructure, "structureId", structureId);
         }
         
     }

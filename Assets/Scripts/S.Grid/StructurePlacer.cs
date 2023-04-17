@@ -16,6 +16,8 @@ namespace S.Grid
 
         private List<GameObject> _placedStructures;
 
+        private int _currentStructureId;
+
         private void Awake()
         {
             OnEnableListenerSubscriptions();
@@ -30,8 +32,7 @@ namespace S.Grid
         {
             if (Input.GetMouseButtonDown(0))
             {
-                int structureId = 2;
-                PlaceStructureAtMousePosition(structureId);
+                PlaceStructureAtMousePosition(_currentStructureId);
             }
         }
 
@@ -113,7 +114,11 @@ namespace S.Grid
 
         private void BuyStructure(Hashtable obj)
         {
-            Debug.Log("Compre una Estructura");
+            if (obj != null && obj.ContainsKey("structureId"))
+            {
+                _currentStructureId = (int)obj["structureId"];
+                Debug.Log("Compré una estructura con ID: " + _currentStructureId);
+            }
         }
         public void OnEnableListenerSubscriptions()
         {
