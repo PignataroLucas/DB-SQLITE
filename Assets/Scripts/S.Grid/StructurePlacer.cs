@@ -1,18 +1,25 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using S.DataBase;
 using S.Structures;
+using S.Utility.Event_Manager;
 using UnityEngine;
 
 namespace S.Grid
 {
-    public class StructurePlacer : MonoBehaviour
+    public class StructurePlacer : MonoBehaviour , IEventListener
     {
         [SerializeField] private List<GameObject> structurePrefabs;
         [SerializeField] private Grid grid;
         [SerializeField] private DatabaseManager databaseManager;
 
         private List<GameObject> _placedStructures;
+
+        private void Awake()
+        {
+            OnEnableListenerSubscriptions();
+        }
 
         private void Start()
         {
@@ -103,7 +110,19 @@ namespace S.Grid
             }
             return null;
         }
-        
+
+        private void BuyStructure(Hashtable obj)
+        {
+            Debug.Log("Compre una Estructura");
+        }
+        public void OnEnableListenerSubscriptions()
+        {
+            EventManager.StartListening(GenericEvents.BuyStructure,BuyStructure);
+        }
+        public void OnDisableListenerSubscriptions()
+        {
+            EventManager.StopListening(GenericEvents.BuyStructure,BuyStructure);
+        }
         
     }
     
