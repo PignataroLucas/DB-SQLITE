@@ -105,7 +105,6 @@ namespace S.Grid
                 Structure structure = prefab.GetComponent<Structure>();
                 if (structure != null && structure.Id == id)
                 {
-                    Debug.Log(structure.Id);
                     return prefab;
                 }
             }
@@ -117,7 +116,6 @@ namespace S.Grid
             if (obj != null && obj.ContainsKey("structureId"))
             {
                 _currentStructureId = (int)obj["structureId"];
-                Debug.Log("Compré una estructura con ID: " + _currentStructureId);
             }
         }
         public void OnEnableListenerSubscriptions()

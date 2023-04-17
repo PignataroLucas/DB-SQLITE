@@ -18,7 +18,8 @@ namespace S.Grid
         public float offsetX = 0f;
         public float offsetZ = 0f;
         
-        
+        public Material cellMaterial;
+
 
         private void Start()
         {
@@ -38,22 +39,34 @@ namespace S.Grid
         }
 
         private void CreateGrid()
-        {
-            
-            _width = Mathf.RoundToInt(PlaneSize.x / cellSize);
-            _height = Mathf.RoundToInt(PlaneSize.y / cellSize);
-            _grid = new Vector3[_width, _height];
+{
+    _width = Mathf.RoundToInt(PlaneSize.x / cellSize);
+    _height = Mathf.RoundToInt(PlaneSize.y / cellSize);
+    _grid = new Vector3[_width, _height];
 
-            for (int x = 0; x < _width; x++)
-            {
-                for (int z = 0; z < _height; z++)
-                {
-                    float xPos = transform.position.x - PlaneSize.x * 0.5f + x * cellSize + cellSize * 0.5f + offsetX;
-                    float zPos = transform.position.z - PlaneSize.y * 0.5f + z * cellSize + cellSize * 0.5f + offsetZ;
-                    _grid[x, z] = new Vector3(xPos, 0, zPos);
-                }
-            }
+    float cellSeparation = 0.05f; // Ajusta este valor para cambiar la separación entre las celdas
+
+    for (int x = 0; x < _width; x++)
+    {
+        for (int z = 0; z < _height; z++)
+        {
+            float xPos = transform.position.x - PlaneSize.x * 0.5f + x * cellSize + cellSize * 0.5f + offsetX;
+            float zPos = transform.position.z - PlaneSize.y * 0.5f + z * cellSize + cellSize * 0.5f + offsetZ;
+            _grid[x, z] = new Vector3(xPos, 0, zPos);
+
+            // Crear quad y asignar material
+            GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            cell.transform.SetParent(transform);
+            cell.transform.position = _grid[x, z];
+            cell.transform.localScale = new Vector3(cellSize - cellSeparation, cellSize - cellSeparation, cellSize);
+            cell.GetComponent<Renderer>().material = cellMaterial;
+
+            // Rotar el quad para que esté orientado horizontalmente
+            cell.transform.rotation = Quaternion.Euler(90, 0, 0);
+         
         }
+    }
+}
 
         public Vector3 GetCellPosition(int x, int z)
         {
