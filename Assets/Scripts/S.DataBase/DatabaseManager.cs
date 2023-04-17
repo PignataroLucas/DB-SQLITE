@@ -68,17 +68,22 @@ namespace S.DataBase
             dbCommand.CommandText = "SELECT * FROM Structure";
             IDataReader reader = dbCommand.ExecuteReader();
 
-            StructureData structureData = new StructureData();
+            StructureData structureData = null;
 
             while (reader.Read())
             {
-                structureData = new StructureData
+                int id = reader.GetInt32(0);
+                if (id == structureId)
                 {
-                    Id = reader.GetInt32(0),
-                    Description = !reader.IsDBNull(1)? reader.GetString(1):"N/A",
-                    CellOccupiedX = !reader.IsDBNull(2) ? reader.GetInt32(2) : 0,
-                    CellOccupiedY = !reader.IsDBNull(3) ? reader.GetInt32(3) : 0,
-                };
+                    structureData = new StructureData
+                    {
+                        Id = id,
+                        Description = !reader.IsDBNull(1) ? reader.GetString(1) : "N/A",
+                        CellOccupiedX = !reader.IsDBNull(2) ? reader.GetInt32(2) : 0,
+                        CellOccupiedY = !reader.IsDBNull(3) ? reader.GetInt32(3) : 0,
+                    };
+                    break;
+                }
             }
             reader.Close();
             dbCommand.Dispose();
@@ -86,6 +91,7 @@ namespace S.DataBase
 
             return structureData;
         }
+
 
         public void UpdatePlayerStats(int id, string playerClass, int life, int speedMovement, int damage)
         {

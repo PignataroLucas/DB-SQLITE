@@ -22,17 +22,12 @@ namespace S.Structures
             _databaseManager = FindObjectOfType<DatabaseManager>();
         }
 
-        private void Start()
+        public void LoadStructureStats(int structureId)
         {
-            LoadStructureStats(id);
-        }
-
-        public void LoadStructureStats(int id)
-        {
-            StructureData structureData = _databaseManager.GetStructureData(this.id);
+            StructureData structureData = _databaseManager.GetStructureData(structureId);
 
             if (structureData == null) return;
-            this.id = structureData.Id;
+            id = structureData.Id;
             _description = structureData.Description;
             _cellOccupiedX = structureData.CellOccupiedX;
             _cellOccupiedY = structureData.CellOccupiedY;

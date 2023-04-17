@@ -97,6 +97,7 @@ namespace S.Grid
                 Structure structure = prefab.GetComponent<Structure>();
                 if (structure != null && structure.Id == id)
                 {
+                    Debug.Log(structure.Id);
                     return prefab;
                 }
             }
