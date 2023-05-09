@@ -62,6 +62,9 @@ namespace S.Grid
                     GameObject newStructure = Instantiate(structurePrefab, position, Quaternion.identity);
                     newStructure.GetComponent<Structure>().LoadStructureStats(structureData.Id);
                     _placedStructures.Add(newStructure);
+
+                    // Cambia el color de las celdas ocupadas a rojo
+                    grid.ChangeCellColor(gridIndex.x, gridIndex.y, structureData.CellOccupiedX, structureData.CellOccupiedY, Color.red);
                 }
             }
         }

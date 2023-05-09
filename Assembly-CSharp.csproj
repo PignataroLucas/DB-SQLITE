@@ -41,20 +41,23 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\S.Utility\Event Manager\GameplayHashtableParameters.cs" />
      <Compile Include="Assets\Scripts\S.Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\S.DataBase\DatabaseManager.cs" />
      <Compile Include="Assets\Scripts\S.Grid\Grid.cs" />
+     <Compile Include="Assets\Scripts\S.Utility\Event Manager\GenericEvents.cs" />
+     <Compile Include="Assets\Scripts\S.UI\BuyStructureButton.cs" />
      <Compile Include="Assets\Scripts\S.Structures\Structure.cs" />
      <Compile Include="Assets\Scripts\S.Structures\StructureData.cs" />
      <Compile Include="Assets\Scripts\S.Grid\StructurePlacer.cs" />
-     <Compile Include="Assets\Scripts\S.Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\S.Utility\Event Manager\IEventListener.cs" />
+     <Compile Include="Assets\Scripts\S.Player\MVC\PlayerController.cs" />
      <Compile Include="Assets\Scripts\S.Utility\Event Manager\EventManager.cs" />
-     <Compile Include="Assets\Scripts\S.Utility\Event Manager\GameplayHashtableParameters.cs" />
-     <Compile Include="Assets\Scripts\S.Utility\Event Manager\GenericEvents.cs" />
-     <Compile Include="Assets\Scripts\S.UI\BuyStructureButton.cs" />
+     <Compile Include="Assets\Scripts\S.Utility\Event Manager\IEventListener.cs" />
+     <Compile Include="Assets\Scripts\S.Player\MVC\PlayerModel.cs" />
+     <Compile Include="Assets\Scripts\S.Player\MVC\PlayerView.cs" />
      <Folder Include="Assets" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <Folder Include="Assets\Thirdparty\Ciathyza" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets\TextMesh Pro\Sprites" />
      <Folder Include="Assets\Scripts\S.Grid" />
@@ -62,14 +65,17 @@
      <Folder Include="Assets\Scripts\S.Utility" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <Folder Include="Assets\Scripts\S.Player" />
+     <Folder Include="Assets\Thirdparty" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <Folder Include="Assets\TextMesh Pro\Resources" />
+     <Folder Include="Assets\Thirdparty\Ciathyza\Gridbox Prototype Materials\Textures" />
      <Folder Include="Assets\Resources" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets\TextMesh Pro" />
+     <Folder Include="Assets\Art" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <Folder Include="Assets\Materials" />
      <Folder Include="Assets\Scripts\S.DataBase" />
@@ -80,24 +86,33 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+     <Folder Include="Assets\Thirdparty\Ciathyza\Gridbox Prototype Materials\Materials" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <Folder Include="Assets\TextMesh Pro\Shaders" />
      <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
      <Folder Include="Assets\TextMesh Pro\Fonts" />
+     <Folder Include="Assets\Thirdparty\Ciathyza\Gridbox Prototype Materials" />
      <Folder Include="Assets\Resources\DB" />
+     <Folder Include="Assets\Thirdparty\Ciathyza\Gridbox Prototype Materials\Demo" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <Folder Include="Assets\Scripts\S.Structures" />
+     <Folder Include="Assets\Art\A.Player" />
+     <Folder Include="Assets\Thirdparty\Ciathyza\Gridbox Prototype Materials\Materials\Standard" />
      <Folder Include="Assets\Scripts\S.Utility\Event Manager" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <Folder Include="Assets\Thirdparty\Ciathyza\Gridbox Prototype Materials\Demo\Prototype Materials Demo" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+     <Folder Include="Assets\Thirdparty\Ciathyza\Gridbox Prototype Materials\Template" />
      <Folder Include="Assets\Scenes" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <Folder Include="Assets\TextMesh Pro\Documentation" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
+     <Folder Include="Assets\Scripts\S.Player\MVC" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <Folder Include="Assets\Prefabs" />
+     <Folder Include="Assets\Art\A.Player\A.Animations" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity 2021.3.19f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

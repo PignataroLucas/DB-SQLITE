@@ -119,5 +119,28 @@ namespace S.Grid
 
             return new Vector2Int(x, z);
         }
+        
+        public void ChangeCellColor(int x, int z, int width, int height, Color color)
+        {
+            for (int offsetX = 0; offsetX < width; offsetX++)
+            {
+                for (int offsetZ = 0; offsetZ < height; offsetZ++)
+                {
+                    int cellX = x + offsetX;
+                    int cellZ = z + offsetZ;
+
+                    if (cellX < _width && cellZ < _height)
+                    {
+                        Transform cellTransform = transform.GetChild(cellX * _height + cellZ);
+                        Renderer cellRenderer = cellTransform.GetComponent<Renderer>();
+                        cellRenderer.material.color = color;
+                    }
+                }
+            }
+        }
+
+        
+        
     }
+    
 }
