@@ -46,6 +46,7 @@
      <Compile Include="Assets\Scripts\S.DataBase\DatabaseManager.cs" />
      <Compile Include="Assets\Scripts\S.Grid\Grid.cs" />
      <Compile Include="Assets\Scripts\S.Utility\Event Manager\GenericEvents.cs" />
+     <Compile Include="Assets\Scripts\S.Player\MVC\PlayerView.cs" />
      <Compile Include="Assets\Scripts\S.UI\BuyStructureButton.cs" />
      <Compile Include="Assets\Scripts\S.Structures\Structure.cs" />
      <Compile Include="Assets\Scripts\S.Structures\StructureData.cs" />
@@ -54,13 +55,16 @@
      <Compile Include="Assets\Scripts\S.Utility\Event Manager\EventManager.cs" />
      <Compile Include="Assets\Scripts\S.Utility\Event Manager\IEventListener.cs" />
      <Compile Include="Assets\Scripts\S.Player\MVC\PlayerModel.cs" />
-     <Compile Include="Assets\Scripts\S.Player\MVC\PlayerView.cs" />
+     <Compile Include="Assets\Scripts\S.ScriptableObjects\Champions.cs" />
+     <Compile Include="Assets\Scripts\S.ScriptableObjects\Skills.cs" />
+     <Compile Include="Assets\Scripts\S.ScriptableObjects\Effects.cs" />
      <Folder Include="Assets" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <Folder Include="Assets\Thirdparty\Ciathyza" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets\TextMesh Pro\Sprites" />
      <Folder Include="Assets\Scripts\S.Grid" />
+     <Folder Include="Assets\Scripts\S.ScriptableObjects" />
      <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
      <Folder Include="Assets\Scripts\S.Utility" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

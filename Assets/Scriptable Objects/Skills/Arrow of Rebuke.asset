@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13987495f3e13c749b83a4f449b76d69, type: 3}
+  m_Name: Arrow of Rebuke
+  m_EditorClassIdentifier: 
+  name: Arrow of Rebuke
+  description: 'Attacks 1 enemy. Removes 1 random debuff from this Champion and places
+    it on the target.
+
+
+    Damage based on: [ATK]'
+  icon: {fileID: 0}
+  effects:
+  - {fileID: 11400000, guid: 5aec5d81ae7caf740aca1a16e56488aa, type: 2}
+  - {fileID: 11400000, guid: ed50fdac0233aeb43899b57213540791, type: 2}
