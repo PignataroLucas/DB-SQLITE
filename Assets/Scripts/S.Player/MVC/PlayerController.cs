@@ -52,12 +52,6 @@ namespace S.Player.MVC
         //         UpdateSpeed(_speedMovement + 1);
         //     }
         // }
-        [SerializeField] private PlayerModel playerModel;
-
-        private void FixedUpdate()
-        {
-            playerModel.MoveCharacter();
-            playerModel.RotateCharacter();
-        }
+        
     }
 }

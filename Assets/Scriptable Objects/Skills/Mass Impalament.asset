@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Mass Impalament
   m_EditorClassIdentifier: 
   name: Mass Impalament
+  id: 2
   description: 'Attacks all enemies. Has a 75% chance of placing a 60% [Decrease
     DEF] debuff for 2 turns.
 
-    
+
 
     Damage based on: [ATK]'
   icon: {fileID: 0}

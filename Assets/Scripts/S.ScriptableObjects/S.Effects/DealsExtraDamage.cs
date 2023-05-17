@@ -6,7 +6,7 @@ namespace S.ScriptableObjects.S.Effects
     [CreateAssetMenu(fileName = "DealsExtraDamageEffect", menuName = "Effects/Create new DealsExtraDamageEffect")]
     public class DealsExtraDamage : ScriptableObjects.Effects
     {
-        [SerializeField] private float extraDamageMultiplier = 1.5f; // Extra damage multiplier
+        //[SerializeField] private float extraDamageMultiplier = 1.5f; // Extra damage multiplier
         
         public override void Apply(Champions user, Champions target)
         {

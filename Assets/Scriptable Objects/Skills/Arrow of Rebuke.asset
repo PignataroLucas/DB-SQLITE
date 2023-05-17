@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Arrow of Rebuke
   m_EditorClassIdentifier: 
   name: Arrow of Rebuke
+  id: 1
   description: 'Attacks 1 enemy. Removes 1 random debuff from this Champion and places
     it on the target.
 
