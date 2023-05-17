@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2e56130766dbcd54db69ddc93450371b, type: 3}
   m_Name: AttackOneEnemyEffect
-  m_EditorClassIdentifier: Assembly-CSharp:S.ScriptableObjects:AttackOneEnemyEffect
+  m_EditorClassIdentifier: 
   name: AttackOneEnemyEffect
-  description: 

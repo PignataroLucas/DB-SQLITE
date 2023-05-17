@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf860d41e456e7f4cb29fb5996bf77ed, type: 3}
-  m_Name: RemoveDebuffAndPlaceInTargetEffect
+  m_Script: {fileID: 11500000, guid: e37d1169bf6c6d94485628ecb48651bf, type: 3}
+  m_Name: DealsExtraDamageEffect
   m_EditorClassIdentifier: 
-  name: RemoveDebuffAndPlaceInTargetEffect
+  name: DealsExtraDamageEffect
+  extraDamageMultiplier: 1.5
